@@ -1,0 +1,15 @@
+// Inputs
+input int ema_period = 20;
+
+// Call to action
+ema_price(ema_period);
+
+// Function
+double ema_price(int period)
+  {
+   double moving_average_values[];
+   int ema_value = iMA(NULL,0,period,0,MODE_EMA,PRICE_CLOSE);
+   ArraySetAsSeries(moving_average_values,true);
+   CopyBuffer(ema_value,0,0,3,moving_average_values);
+   return NormalizeDouble(moving_average_values[0],_Digits);
+  }
