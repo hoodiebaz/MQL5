@@ -17,6 +17,4 @@ string day_of_week()
     case 5: return "Friday";
     case 6: return "Saturday";
     }
-  
-  return "Unknown"; // fallback
   }
