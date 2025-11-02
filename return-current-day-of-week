@@ -1,0 +1,22 @@
+// Call to action
+Print(day_of_week());
+
+// Function
+string day_of_week()
+  {
+  MqlDateTime time;
+  TimeToStruct(TimeCurrent(), time);
+  
+  switch(time.day_of_week)
+    {
+    case 0: return "Sunday";
+    case 1: return "Monday";
+    case 2: return "Tuesday";
+    case 3: return "Wednesday";
+    case 4: return "Thursday";
+    case 5: return "Friday";
+    case 6: return "Saturday";
+    }
+  
+  return "Unknown"; // fallback
+  }
