@@ -1,0 +1,19 @@
+// Call to action
+if(new_candle())
+  {
+  Print("New candle detected at ", TimeToString(TimeCurrent(), TIME_MINUTES));
+  }
+
+
+// Function
+bool new_candle()
+  {
+  static datetime last_candle_time = 0;
+  datetime current_candle_time = iTime(Symbol(), PERIOD_CURRENT, 0);
+  if(current_candle_time != last_candle_time)
+    {
+    last_candle_time = current_candle_time;
+    return true;
+    }
+  return false;
+  }
