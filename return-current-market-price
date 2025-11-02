@@ -1,0 +1,21 @@
+// Call to action
+market_price();
+Print(market_price());
+
+
+// Functions
+double ask_price()
+  {
+  return SymbolInfoDouble(_Symbol,SYMBOL_ASK);
+  }
+
+double bid_price()
+  {
+  return SymbolInfoDouble(_Symbol,SYMBOL_BID);
+  }
+
+double market_price()
+  {
+  int digits = (int)SymbolInfoInteger(_Symbol,SYMBOL_DIGITS);
+  return NormalizeDouble((bid_price()+ask_price())/2,digits);
+  }
