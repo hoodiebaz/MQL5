@@ -1,0 +1,20 @@
+// Call to action
+Print(current_hour(),":",current_minute());
+
+
+// Function
+int current_hour()
+  {
+  MqlDateTime time;
+  datetime current_time = TimeCurrent();
+  TimeToStruct(current_time,time);
+  return time.hour;
+  }
+
+int current_minute()
+  {
+  MqlDateTime time;
+  datetime current_time = TimeCurrent();
+  TimeToStruct(current_time,time);
+  return time.min;
+  }
