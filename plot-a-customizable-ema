@@ -3,6 +3,7 @@ input int ema_period = 20;
 
 // Call to action
 ema_price(ema_period);
+Print(ema_price(ema_period));
 
 // Function
 double ema_price(int period)
