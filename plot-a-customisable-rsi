@@ -1,0 +1,18 @@
+// Inputs
+input int rsi_period = 14;
+
+// Static variables
+double rsi_now;
+
+// Call to action
+rsi_now = get_rsi(rsi_period);
+Print("Current RSI: ", rsi_now);
+
+// Function
+double get_rsi(int rsi_period)
+  {
+  double rsi[];
+  ArraySetAsSeries(rsi, true);
+  CopyBuffer(iRSI(Symbol(), PERIOD_CURRENT, rsi_period, PRICE_CLOSE), 0, 0, 1, rsi);
+  return NormalizeDouble(rsi[0], 2);
+  }
