@@ -1,0 +1,28 @@
+// Call to action
+double open  = candle_open_price(1); // (1 = previous, 2 = previous of previous)
+double high  = candle_high_price(1);
+double low   = candle_low_price(1);
+double close = candle_close_price(1);
+Print("Candle ", ": O=", open, " H=", high, " L=", low, " C=", close);
+
+
+// Functions
+double candle_open_price(int bars_back)
+  {
+   return iOpen(Symbol(), PERIOD_CURRENT, bars_back);
+  }
+
+double candle_high_price(int bars_back)
+  {
+   return iHigh(Symbol(), PERIOD_CURRENT, bars_back);
+  }
+
+double candle_low_price(int bars_back)
+  {
+   return iLow(Symbol(), PERIOD_CURRENT, bars_back);
+  }
+
+double candle_close_price(int bars_back)
+  {
+   return iClose(Symbol(), PERIOD_CURRENT, bars_back);
+  }
