@@ -1,0 +1,21 @@
+
+bool is_valid_bullish_engulfing(ENUM_TIMEFRAMES timeframe)
+  {
+   bool is_bullish        = candle_open_price(timeframe,1) < candle_close_price(timeframe,1);
+   bool made_lower_low  = candle_low_price(timeframe,1) < candle_low_price(timeframe,2);
+   bool closed_new_high = candle_close_price(timeframe,1) > candle_high_price(timeframe,2);
+   bool prev_was_bearish = candle_close_price(timeframe,2) < candle_open_price(timeframe,2);
+
+   return is_bullish && made_lower_low && closed_new_high && prev_was_bearish;
+  }
+
+
+bool is_valid_bearish_engulfing(ENUM_TIMEFRAMES timeframe)
+  {
+   bool is_bearish        = candle_open_price(timeframe,1) > candle_close_price(timeframe,1);
+   bool made_higher_high  = candle_high_price(timeframe,1) > candle_high_price(timeframe,2);
+   bool closed_new_low = candle_close_price(timeframe,1) < candle_low_price(timeframe,2);
+   bool prev_was_bullish = candle_close_price(timeframe,2) > candle_open_price(timeframe,2);
+
+   return is_bearish && made_higher_high && closed_new_low && prev_was_bullish && body_in_lower;
+  }
